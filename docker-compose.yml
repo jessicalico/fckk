@@ -6,4 +6,4 @@ services:
     working_dir: /usr/src/app
     volumes:
       - .:/usr/src/app
-    command: npm ci && npm run start
+    command: pwd && ls -la && npm ci && npm run start
