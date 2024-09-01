@@ -2,8 +2,8 @@ services:
   app:
     image: node:22
     ports:
-      - "3000:${PORT}"
+      - "${PORT}:3000"
     working_dir: /usr/src/app
     volumes:
       - .:/usr/src/app
-    command: npm run start
+    command: npm ci && npm run start
