@@ -1,9 +1,13 @@
 services:
   app:
+    build:
+      context: .
+    restart: unless-stopped
     image: node:22
+    working_dir: /home/node/app
     ports:
       - "${PORT}:3000"
-    working_dir: /usr/src/app
     volumes:
-      - .:/usr/src/app
-    command: pwd && ls -la && npm ci && npm run start
+      - .:/home/node/app
+      # - node_modules:/home/node/app/node_modules
+    command: npm ci && npm run start
